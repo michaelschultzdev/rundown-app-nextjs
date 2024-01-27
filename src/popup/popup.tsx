@@ -106,7 +106,6 @@ const Popup = () => {
 			<div className='maincontent'>
 				<div className='titleContainer'>Page you're summarizing:</div>
 				<input id='urlField' className='mb-2' value={activeTabUrl} readOnly />
-				{/* <div className='somethingElse'>Summarize something else</div> */}
 
 				<button id='generateButton' onClick={handleGenerateButtonClick}>
 					<div
