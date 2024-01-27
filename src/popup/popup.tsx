@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import JSDOM from 'jsdom';
 import Readability from '../assets/Readability.js';
 import './popup.css';
 
@@ -11,40 +10,18 @@ const Popup = () => {
 	const [parsedContent, setParsedContent] = useState('');
 
 	useEffect(() => {
-		// Fetch active tab URL
 		chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
 			const activeTab = tabs[0];
 			setActiveTabUrl(activeTab.url);
-			// console.log(activeTabUrl);
 		});
 	}, [activeTabUrl]);
-
-	useEffect(() => {
-		// const parser = new DOMParser();
-		// const dom = parser.parseFromString(pageContents, 'text/html');
-		// console.log(dom);
-		// const article = new Readability(dom).parse();
-		// console.log(article);
-		// const holderClone = document.getElementById('holder').cloneNode(true);
-		// document
-		// 	.getElementById('toText')
-		// 	.addEventListener(
-		// 		'click',
-		// 		() =>
-		// 			(document.getElementById(
-		// 				'holder'
-		// 			).innerHTML = `<pre>${article.textContent}</pre>`)
-		// 	);
-	}, [pageContents]);
 
 	const handleGenerateButtonClick = async () => {
 		setLoading(true);
 
 		try {
-			// Fetch page contents
 			console.log(activeTabUrl);
 			const content = await scrapePageContent(activeTabUrl);
-			// setPageContents(content as string);
 
 			const parser = new DOMParser();
 			const waitForContent = await content;
@@ -81,10 +58,6 @@ const Popup = () => {
 			const summary = data.choices[0].message.content;
 
 			setPageContents(summary);
-
-			setErrorMessage('');
-
-			console.log(data);
 		} catch (e) {
 			console.error(e);
 			setErrorMessage(
@@ -104,7 +77,6 @@ const Popup = () => {
 				fetch(url)
 					.then((response) => response.text())
 					.then((data) => {
-						// console.log('Content fetched successfully:', data);
 						resolve(data);
 					})
 					.catch((error) => {
