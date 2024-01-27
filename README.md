@@ -7,6 +7,8 @@
 - [x] TailwindCSS 3.0 Compatible
 - [x] Webpack Compatible
 
+Just be sure to create a .env file and add your own OpenAI API key.
+
 By Michael Schultz, Open-Source Licensed Under The [MIT license](https://opensource.org/licenses/MIT).
 
 You are free to use the software as you see fit, any attribution to me is purely optional.
