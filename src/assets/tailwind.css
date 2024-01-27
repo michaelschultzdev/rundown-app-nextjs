@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	background: #1b2b40;
+	color: #fff;
+	width: 360px;
+	height: 600px;
+	overflow: hidden;
+	border: 1px solid #20334b;
+}
+
+.popup-container {
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	max-width: 100%;
+}
+.titleContainer {
+	margin-top: 0;
+	padding-top: 0;
+}
+.opacus {
+	opacity: 0;
+}
+.topbar {
+	position: absolute;
+	max-width: 100%;
+	display: flex;
+	top: 0;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	text-align: center;
+	padding: 0 15px;
+	height: 45px;
+	background-color: #172433;
+	border-bottom: 1px solid #20334b;
+}
+.flex {
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+}
+.maincontent {
+	margin-top: 45px;
+	padding: 10px 10px;
+	height: 100%;
+	position: relative;
+}
+.urltext {
+	color: #fff;
+}
+textarea {
+	width: 100%;
+	border: 0;
+	background: #284263;
+	margin-bottom: 10px;
+	color: #fff;
+}
+#urlField {
+	width: 100%;
+	border: 0;
+	padding: 5px 4px;
+	background-color: #284263;
+	color: #fff;
+	border-radius: 4px;
+}
+button {
+	cursor: pointer;
+	border: 0;
+	color: #fff;
+	background-color: #e99309;
+	border-radius: 10px;
+	padding: 10px 10px;
+	width: 100%;
+}
+/* Add this section for the loading spinner */
+#spinDiv {
+}
+.font-custom {
+	/* text-shadow: 1px 1px 2px #333; */
+	font-size: 17px;
+	font-weight: bold;
+	letter-spacing: 0.5px;
+	background: -webkit-linear-gradient(#fff, #fff, #182e3b);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+@keyframes spinner {
+	to {
+		transform: rotate(360deg);
+	}
+}
+#generateButton {
+	position: relative;
+}
+.spinner:before {
+	content: '';
+	box-sizing: border-box;
+	position: absolute;
+	top: 50%;
+	left: 20%;
+	width: 20px;
+	height: 20px;
+	margin-top: -10px;
+	margin-left: -10px;
+	border-radius: 50%;
+	border: 2px solid #ffffff;
+	border-top-color: #e99309;
+	animation: spinner 0.6s linear infinite;
+}
+#responseContainer {
+	border: 1px solid #172a42;
+	background: #3a567c;
+	border-radius: 10px;
+	margin: 10px 0px;
+	white-space: pre-wrap;
+	padding: 10px;
+	max-height: 550px;
+	overflow: scroll;
+}
+
+#responseContainer:empty {
+	display: none;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

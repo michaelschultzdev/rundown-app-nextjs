@@ -1,0 +1,29 @@
+{
+	"name": "Rundown",
+	"version": "1.0.0",
+	"description": "From recipes to long essays, Rundown provides  user-defined summaries of any web page that are organizable & savable.",
+	"manifest_version": 3,
+	"author": "The Rundown Team",
+	"action": {
+		"default_popup": "popup.html",
+		"default_title": "Rundown Menu",
+		"default_icon": "images/icons/icon128.png"
+	},
+	"permissions": ["activeTab", "tabs", "bookmarks", "storage", "identity"],
+	"icons": {
+		"16": "images/icons/icon16.png",
+		"48": "images/icons/icon48.png",
+		"128": "images/icons/icon128.png"
+	},
+	"host_permissions": ["*://*/*"],
+	"options_page": "options.html",
+	"background": {
+		"service_worker": "background.js"
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["contentScript.js"]
+		}
+	]
+}
